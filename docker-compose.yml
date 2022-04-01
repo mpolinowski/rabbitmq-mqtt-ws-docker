@@ -1,24 +1,31 @@
 version: "3.8"
-services:  
+services:
   rabbitmq:
+    image: rabbitmq:${IMAGE_VERSION}
     container_name: rabbitmq
     restart: unless-stopped
     build:
       context: rabbitmq/
-      args:
-        IMAGE_VERSION: $IMAGE_VERSION
     ports:
       - "1883:1883"
       - "5672:5672"
-      - "15672:15672"
-      - "15675:15675"
+      - "8080:15672"
+      - "1885:15675"
+    command: "/bin/bash -c \"rabbitmq-plugins enable --offline rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_amqp1_0; rabbitmq-server\""
+    env_file:
+      - config/login.env
     volumes:
       - type: bind
-        source: /opt/rabbitmq
-        target: /etc/rabbitmq
+        source: ./config/rabbitmq.conf
+        target: /etc/rabbitmq/rabbitmq.conf
+        read_only: true
+      - type: bind
+        source: ./config/advanced.config
+        target: /etc/rabbitmq/advanced.config
+        read_only: true
     networks:
       brokernet:
-        ipv4_address: 172.16.239.101
+        ipv4_address: 172.16.238.101
 
 networks:
   brokernet:
