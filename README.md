@@ -47,6 +47,46 @@ rabbitmq    |                   /etc/rabbitmq/conf.d/10-defaults.conf
 ```
 
 
+```bash
+docker exec -ti rabbitmq rabbitmq-diagnostics status
+
+Plugins
+
+Enabled plugin file: /etc/rabbitmq/enabled_plugins
+Enabled plugins:
+
+ * rabbitmq_prometheus
+ * prometheus
+ * rabbitmq_amqp1_0
+ * accept
+ * rabbitmq_web_mqtt
+ * rabbitmq_mqtt
+ * rabbitmq_management
+ * amqp_client
+ * rabbitmq_web_dispatch
+ * cowboy
+ * cowlib
+ * rabbitmq_management_agent
+
+Config files
+
+ * /etc/rabbitmq/advanced.config
+ * /etc/rabbitmq/rabbitmq.conf
+ * /etc/rabbitmq/conf.d/10-defaults.conf
+
+Listeners
+
+Interface: [::], port: 15672, protocol: http, purpose: HTTP API
+Interface: [::], port: 1883, protocol: mqtt, purpose: MQTT
+Interface: [::], port: 15675, protocol: http/web-mqtt, purpose: MQTT over WebSockets
+Interface: [::], port: 15692, protocol: http/prometheus, purpose: Prometheus exporter API over HTTP
+Interface: [::], port: 25672, protocol: clustering, purpose: inter-node and CLI tool communication
+Interface: [::], port: 5672, protocol: amqp, purpose: AMQP 0-9-1 and AMQP 1.0
+```
+
+
+## Connections
+
 Check the `./docker-compose.yml` file for the published ports:
 
 
