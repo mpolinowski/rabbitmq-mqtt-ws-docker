@@ -9,6 +9,41 @@ Run the container with the following command to be able to see the container log
 
 ```bash
 docker-compose up
+
+Starting rabbitmq ... done
+Attaching to rabbitmq
+rabbitmq    | Enabling plugins on node rabbit@1a7c322456fc:
+rabbitmq    | rabbitmq_mqtt
+rabbitmq    | rabbitmq_web_mqtt
+rabbitmq    | rabbitmq_amqp1_0
+rabbitmq    | The following plugins have been configured:
+rabbitmq    |   rabbitmq_amqp1_0
+rabbitmq    |   rabbitmq_management
+rabbitmq    |   rabbitmq_management_agent
+rabbitmq    |   rabbitmq_mqtt
+rabbitmq    |   rabbitmq_prometheus
+rabbitmq    |   rabbitmq_web_dispatch
+rabbitmq    |   rabbitmq_web_mqtt
+rabbitmq    |   ##  ##      RabbitMQ 3.9.14
+rabbitmq    |   ##  ##
+rabbitmq    |   ##########  Copyright (c) 2007-2022 VMware, Inc. or its affiliates.
+rabbitmq    |   ######  ##
+rabbitmq    |   ##########  Licensed under the MPL 2.0. Website: https://rabbitmq.com
+rabbitmq    | 
+rabbitmq    |   Erlang:      24.3.3 [jit]
+rabbitmq    |   TLS Library: OpenSSL - OpenSSL 1.1.1n  15 Mar 2022
+rabbitmq    | 
+rabbitmq    |   Doc guides:  https://rabbitmq.com/documentation.html
+rabbitmq    |   Support:     https://rabbitmq.com/contact.html
+rabbitmq    |   Tutorials:   https://rabbitmq.com/getstarted.html
+rabbitmq    |   Monitoring:  https://rabbitmq.com/monitoring.html
+rabbitmq    | 
+rabbitmq    |   Logs: /var/log/rabbitmq/rabbit@1a7c322456fc_upgrade.log
+rabbitmq    |         <stdout>
+rabbitmq    | 
+rabbitmq    |   Config file(s): /etc/rabbitmq/advanced.config
+rabbitmq    |                   /etc/rabbitmq/rabbitmq.conf
+rabbitmq    |                   /etc/rabbitmq/conf.d/10-defaults.conf
 ```
 
 
