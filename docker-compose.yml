@@ -20,7 +20,7 @@ services:
       - brokernet:
           ipv4_address: 172.16.239.101
           aliases:
-            - broker
+            - "broker"
 
 networks:
   brokernet:
