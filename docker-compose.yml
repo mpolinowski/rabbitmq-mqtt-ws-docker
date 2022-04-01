@@ -17,10 +17,8 @@ services:
         source: /opt/rabbitmq
         target: /etc/rabbitmq
     networks:
-      - brokernet:
-          ipv4_address: 172.16.239.101
-          aliases:
-            - "broker"
+      brokernet:
+        ipv4_address: 172.16.239.101
 
 networks:
   brokernet:
