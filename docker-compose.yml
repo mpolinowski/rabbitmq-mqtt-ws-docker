@@ -1,0 +1,33 @@
+version: "3.8"
+services:  
+  rabbitmq:
+    container_name: rabbitmq
+    restart: unless-stopped
+    build:
+      context: rabbitmq/
+      args:
+        IMAGE_VERSION: $IMAGE_VERSION
+    ports:
+      - "1883:1883"
+      - "5672:5672"
+      - "15672:15672"
+      - "15675:15675"
+    volumes:
+      - type: bind
+        source: /opt/rabbitmq
+        target: /etc/rabbitmq
+    networks:
+      - brokernet:
+          ipv4_address: 172.16.239.101
+          aliases:
+            - broker
+
+networks:
+  brokernet:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
