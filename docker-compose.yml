@@ -1,11 +1,11 @@
 version: "3.8"
 services:
   rabbitmq:
-    image: rabbitmq:${IMAGE_VERSION}
+    image: rabbitmq:management-alpine
     container_name: rabbitmq
     restart: unless-stopped
     build:
-      context: rabbitmq/
+      context: docker/
     ports:
       - "1883:1883"
       - "5672:5672"
